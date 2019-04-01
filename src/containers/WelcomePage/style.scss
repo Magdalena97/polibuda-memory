@@ -1,0 +1,86 @@
+.WelcomePage{
+    position:fixed;
+    padding:0;
+    margin:0;
+    top:0;
+    left:0;
+    width: 100%;
+    height: 100%;   
+}
+.flexbox{
+    margin-top: 10%;
+    margin-left: 5%;
+    display: flex;
+    flex-wrap: wrap;
+}
+.flexbox2{
+    display: flex;
+    flex-direction: column;
+    margin-left: 2%;
+}
+.logo{
+    height: 23%;
+    width: 23%;    
+}
+.header{
+    font-family: 'Cabin', sans-serif;
+    color: #00618E;
+    height: 47%;
+    font-size: 35px;
+    border-bottom: 6px solid #00618E;
+    padding-bottom: 1%;
+    margin-bottom: 2%;
+}
+.welcomeButton{
+    height: 25%;
+    border: 1.5px dashed #00618E;
+    background: none;
+    padding: 10px 20px;
+    font-family: 'Cabin', sans-serif;
+    cursor: pointer;
+    color:#00618E;
+    margin: 10px;
+    font-size: 3.5vw;
+    transition: all 0.5s;
+}
+.welcomeButton span {
+    cursor: pointer;
+    display: inline-block;
+    position: relative;
+    transition: 0.5s;
+  }
+.welcomeButton span:after {
+    content: '\00bb';
+    position: absolute;
+    opacity: 0;
+    top: 0;
+    right: -20px;
+    transition: 0.5s;
+}
+.welcomeButton:hover span {
+    padding-right: 25px;
+  }
+  
+.welcomeButton:hover span:after {
+    opacity: 1;
+    right: 0;
+}
+/*średni telefon lub IPad*/
+@media only screen and (max-width: 1190px){
+    .flexbox{
+        margin-top: 10%;
+        margin-left: 5%;
+        display: flex;
+        justify-content: center;
+    }
+    .logo{
+        justify-content: center;
+        height: 23%;
+        width: 23%;    
+    }
+    .header{
+        font-family: 'Cabin', sans-serif;
+        font-size: 3vw;
+        color:#00618E;
+    }   
+}
