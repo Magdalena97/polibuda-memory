@@ -1,56 +1,51 @@
 import React from 'react'; 
-import propTypes from 'prop-types';
-import Logo from './logo.png';
+import PropTypes from 'prop-types';
 
 import './style.scss'
-
-//zmienne pojedynczej karty:
-/*
--id identyfikacja danej karty
--state stan czy katra jest odslonieta czy nie 
--press czy jest nacisnieta 
-*/ 
-
-class Card extends React.Component{
-    constructor(props) {
-        super(props);
-        this.handleClick = this.handleClick.bind(this);
-    }
-
-    handleClick() {
-        this.setState(state => ({
-            idClicked: this.props.id
-        }));
-    }
-
-    render(){
-        return(
-        <div className="Card">
-            <img onclick={this.handleClick} src={Logo} alt="Logo" className="logo"/>
-        </div>
-        )
-
-
-    }
+function renderContent(type,content,height,width,flipped){ 
+    if(type=="image") return renderImage(content,height,width,flipped)
+    else return renderText(content,flipped)
 }
-// function  Card (props) {
-//     return (
-//         <div>
-//     <div className="Card">
-//                 <img src={Logo} alt="Logo2" className="logo"/>
-//      </div>
-//      <div>
-//      {console.log(props.id)}
-//      </div>
-//      </div>
-//     );    
-// }
+function renderImage(content,height,width,flipped){
+    return (
+       <img 
+            style={{
+                height,width
+            }}
+            className={flipped ? 'front' : 'back'}
+            src={flipped ? content : `/Img/back.png`}
+        />
+    )
+}
+
+function renderText(content,flipped){
+    return 
+        /*if(flipped)
+    <p>{content}</p>
+    else <img scr= `/Img/back.png`/>*/
+    
+    
+}
+export default function Card({id,type,content,width,height,flipped,handleClick}){
+    
+        return <div 
+            className={`flip-container ${flipped ? 'flipped' : ''}`}
+            style={{
+                width,height
+            }}
+            onClick={() => handleClick(id)}
+        >
+            <div className="flipper">
+               { renderContent(type,content,height,width,flipped) }
+            </div>
+        </div>
+    
+}
 
 Card.propTypes = {
-    id:propTypes.number.isRequired,
-};
-export default Card;
-//obiety klasy musza przyjmowac wartosci z json czyli musimy miec for ktory przelatuje przez json i ustawia obiety w klaise 
-// trzeba miec on click by wiedziec na jaka kartke ktos nakliknal
-
+    handleClick:PropTypes.func.isRequired,
+    id:PropTypes.number.isRequired,
+    type:PropTypes.string.isRequired,
+    flipped:PropTypes.bool.isRequired,
+}
 

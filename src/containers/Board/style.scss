@@ -1,24 +1,26 @@
-.LayoutContainer{
-    /*display: flex;
-    flex-direction: column;
-    align-items: center;
-   // background-color:red; */
-}
-.flexbox{
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-}
-.headerBoard{
-    height: 50%;
-    font-size: 20px;
-}
-.logoBoard{
-    width: 8%;
-    height: 8%;   
-}
-.horizontalLine{
-    width: 100%;
-    height: 6px;
-    background-color:#00618E;
-}
+body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
+      "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
+      sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  
+    background-color: #1e1e1e;
+    color: #e7e7e7;
+    margin: 0 auto;
+    padding: 1em 2em;
+    font-family: 'FiraCode-retina';
+  }
+  ul {
+    margin: 1em 2em;
+    padding: 0;
+  }
+  ul li {
+    margin: 0;
+    padding: 0.125em 0;
+    color: rgb(224, 242, 255);
+  }
+  
+  ul li ul {
+    margin: 0.25em 1.25em;
+  }

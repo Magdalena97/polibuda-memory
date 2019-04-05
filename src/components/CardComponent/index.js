@@ -1,25 +1,31 @@
-import React from 'react';
+import React, { useState} from 'react';
+import PropTypes from 'prop-types'
 
 import './style.scss';
 
-import Card from '../Card'; 
+import Card from '../Card';
 
-class CardComponent extends React.Component{
-    createTable = () => {
-        let table = []
-            for (let i = 0;i < 3;i++ ){
-                table.push(
-                <div className="CardComponent">
-                    <Card id={i}/>
-                </div>)
-            }
-        return table
-    }
-    render(){
-        return(this.createTable())
-    }
-
+export default function CardComponent({dimension,cards, flipped,handleClick}){
+    return(
+    <div className="board">
+        {cards.map((card) =>(
+            <Card
+                key={card.id} 
+                id={cards.id}
+                type={card.type}
+                width={dimension /4.5}
+                height={dimension /4.5}
+                flipped={flipped.includes(card.id)}
+                handleClick={() => handleClick(card.id)}
+            />
+        ))}
+    </div>
+    )
 }
 
-export default CardComponent;
-
+CardComponent.propTypes = {
+    dimension: PropTypes.number.isRequired,
+    cards: PropTypes.arrayOf(PropTypes.shape({})).isRequired,
+    flipped: PropTypes.arrayOf(PropTypes.number).isRequired,
+    handleClick: PropTypes.func.isRequired,
+}
