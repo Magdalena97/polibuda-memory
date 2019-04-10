@@ -8,6 +8,8 @@ function renderContent(type,content,solved,height,width,flipped){
     else return renderText(content,solved,flipped,height,width)
 }
 function renderImage(content,solved,height,width,flipped){
+    console.log(content)
+    console.log(`flipped: ${flipped}, solved: ${solved}`)
     return (
        <img 
             style={{ height,width }}
@@ -17,11 +19,20 @@ function renderImage(content,solved,height,width,flipped){
     )
 }
 function renderText(content,solved,flipped,height,width){
-    if(flipped ||solved){
-        return( <p 
-                style={{ height,width }}
-                className={'frontText'}>{content}
-                </p>)}
+    console.log(content)
+    console.log(`flipped: ${flipped}, solved: ${solved}`)
+    if(flipped || solved){
+        if(solved){
+            console.log('teraz')
+            return( <p 
+                    style={{ height,width }}
+                    className={'frontText1'}>{content}
+                    </p>)}
+        else {
+            return( <p 
+                    style={{ height,width }}
+                    className={'frontText'}>{content}
+                    </p>)}}
     else {
         return(  <img  
                 style={{ height,width }}

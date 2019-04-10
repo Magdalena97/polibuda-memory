@@ -29,6 +29,6 @@ export default function initializeDeck() {
             pair: pair++,
             type: "image"     
         })
-        return shuffle(acc)
+        return acc
     },[])
 }

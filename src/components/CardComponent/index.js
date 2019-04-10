@@ -5,7 +5,8 @@ import './style.scss';
 
 import Card from '../Card';
 
-export default function CardComponent({disabled,/*dimension,*/cards, flipped,solved,handleClick}){
+export default function CardComponent({disabled,cards, flipped,solved,handleClick}){
+    console.log(flipped)
     return(
     <div className="board">
         {cards.map((card) =>(
@@ -29,7 +30,6 @@ export default function CardComponent({disabled,/*dimension,*/cards, flipped,sol
 
 CardComponent.propTypes = {
     disabled: PropTypes.bool.isRequired,
-    //dimension: PropTypes.number.isRequired,
     cards: PropTypes.arrayOf(PropTypes.shape({})).isRequired,
     flipped: PropTypes.arrayOf(PropTypes.number).isRequired,
     solved: PropTypes.arrayOf(PropTypes.number).isRequired,

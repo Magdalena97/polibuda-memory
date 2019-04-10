@@ -1,14 +1,8 @@
-body {
-  //width: 100%;
-}
-
 .board {
   display: grid;
-  /*margin-left: auto;
-  margin-right: auto;*/
-  //margin: 0px;
   justify-content: center;
   padding: 0px;
   grid-template-columns: repeat(4, 35vh);
   grid-template-rows: auto;
+  grid-row-gap: 15px;
 }

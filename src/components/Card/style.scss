@@ -3,7 +3,9 @@
    display: inline-block;
    background: #F5FFFA;
  }
- 
+ img{
+   border-radius: 5px;
+ }
  .flip-container.flipped .flipper {
    transform: rotateY(180deg);
  }
@@ -38,7 +40,16 @@
   border: 1.5px solid #00618E;
   border-radius: 5px;
   transform: rotateY(180deg);
-  backface-visibility: hidden;
+  position: absolute;
+  left: 0;
+  top: 0;
+ }
+ .frontText1{
+  color:black;
+  background-color: #3C7197;
+  font-size: 4vh;
+  border: 1.5px solid #00618E;
+  border-radius: 5px;
   position: absolute;
   left: 0;
   top: 0;

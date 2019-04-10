@@ -1,26 +1,20 @@
 body {
-    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
-      "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
-      sans-serif;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-  
-    background-color: #F5FFFA;
-    color: #e7e7e7;
-    margin: 0 auto;
-    padding: 1em 2em;
-    font-family: 'FiraCode-retina';
+  background-color: #F5FFFA;
+  margin: 0 auto;
+  padding: 1em 2em;
   }
-  ul {
-    margin: 1em 2em;
-    padding: 0;
-  }
-  ul li {
-    margin: 0;
-    padding: 0.125em 0;
-    color: rgb(224, 242, 255);
-  }
-  
-  ul li ul {
-    margin: 0.25em 1.25em;
-  }
+.partParent{
+  display: flex;
+  flex-direction: column;
+}
+.partTop{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  padding-bottom: 4vh;
+}
+.logoBoard{
+  width: 130px; 
+  height: 130px;
+  margin-right: 3%;
+}

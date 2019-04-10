@@ -4,7 +4,7 @@ import {withRouter} from 'react-router-dom';
 import './style.scss';
 
 import Header from '../../components/Header';
-import Logo from './logo2.jpg';
+import Logo from './logo.jpg';
 
 class WelcomePage extends Component{
 
