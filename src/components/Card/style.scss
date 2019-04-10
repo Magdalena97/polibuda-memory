@@ -1,17 +1,7 @@
-/*.Card{
-   height: 150px;
-   width: 150px;
-}
-.logo2{
-   height: 150px;
-   width: 150px;
-}*/
-
 .flip-container {
    perspective: 1000px;
    display: inline-block;
-   border: 1px solid white;
-   background: black;
+   background: #F5FFFA;
  }
  
  .flip-container.flipped .flipper {
@@ -40,4 +30,20 @@
  
  .front {
    transform: rotateY(180deg);
+ }
+ .frontText{
+  color:black;
+  background-color: #3C7197;
+  font-size: 4vh;
+  border: 1.5px solid #00618E;
+  border-radius: 5px;
+  transform: rotateY(180deg);
+  backface-visibility: hidden;
+  position: absolute;
+  left: 0;
+  top: 0;
+ }
+ p{
+   margin: 0;
+   padding: 0;
  }

@@ -24,7 +24,7 @@ class WelcomePage extends Component{
                     <img src={Logo} className="logo" alt="Logo of University of Technology"/>
                     <div className="flexbox2">
                         <div className="header"> <Header/></div>
-                        <button onClick={this.onNavigationBoard} className="welcomeButton"><span>Zaczynamy!</span></button>
+                        <button onClick={this.onNavigationBoard} className="welcomeButton"><span>Zaczynamy! </span></button>
                     </div>
                 </div>
             </div>

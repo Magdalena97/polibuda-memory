@@ -10,30 +10,25 @@ function shuffle(array) {
     }
     return _array
 }
-function toArray(array) {
-    let result = []
-    for(var i in array) 
-        result.push([i,array[i]])
-    return result
-}
+
 export default function initializeDeck() {
     let id=0 
+    let pair=0
     const cards = Data
 
     return cards.memorySet.people.reduce((acc,type) => {
         acc.push({
            id: id++,
-           type: "text",
-           content: type.name
+           content: type.name,
+           pair: pair,
+           type: "text"
         })
         acc.push({
             id: id++,
-            type: "image",
-            content: type.image
+            content: type.image,
+            pair: pair++,
+            type: "image"     
         })
-        return acc
-
+        return shuffle(acc)
     },[])
-   // return shuffle(toArray(cards))//ta funkcja nie dzial bo cards nie jest tablica,
-    //trzeba przekonwertowac na tablice
 }

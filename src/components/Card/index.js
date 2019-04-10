@@ -1,42 +1,45 @@
 import React from 'react'; 
 import PropTypes from 'prop-types';
 
-import './style.scss'
-function renderContent(type,content,height,width,flipped){ 
-    if(type=="image") return renderImage(content,height,width,flipped)
-    else return renderText(content,flipped)
+import './style.scss';
+
+function renderContent(type,content,solved,height,width,flipped){ 
+    if(type=="image") return renderImage(content,solved,height,width,flipped)
+    else return renderText(content,solved,flipped,height,width)
 }
-function renderImage(content,height,width,flipped){
+function renderImage(content,solved,height,width,flipped){
     return (
        <img 
-            style={{
-                height,width
-            }}
+            style={{ height,width }}
             className={flipped ? 'front' : 'back'}
-            src={flipped ? content : `/Img/back.png`}
+            src={flipped || solved ? content : `/images/back.jpg`}
         />
     )
 }
-
-function renderText(content,flipped){
-    return 
-        /*if(flipped)
-    <p>{content}</p>
-    else <img scr= `/Img/back.png`/>*/
-    
-    
+function renderText(content,solved,flipped,height,width){
+    if(flipped ||solved){
+        return( <p 
+                style={{ height,width }}
+                className={'frontText'}>{content}
+                </p>)}
+    else {
+        return(  <img  
+                style={{ height,width }}
+                className={'back'} 
+                src={ `/images/back.jpg`}
+        /> )}  
 }
-export default function Card({id,type,content,width,height,flipped,handleClick}){
+export default function Card({id,type,content,pair,solved,width,height,flipped,handleClick,disabled}){
     
         return <div 
             className={`flip-container ${flipped ? 'flipped' : ''}`}
             style={{
                 width,height
             }}
-            onClick={() => handleClick(id)}
+            onClick={() =>disabled ? null: handleClick(id,pair)}
         >
             <div className="flipper">
-               { renderContent(type,content,height,width,flipped) }
+               { renderContent(type,content,solved,height,width,flipped) }
             </div>
         </div>
     
@@ -46,6 +49,12 @@ Card.propTypes = {
     handleClick:PropTypes.func.isRequired,
     id:PropTypes.number.isRequired,
     type:PropTypes.string.isRequired,
+    pair:PropTypes.number.isRequired,
     flipped:PropTypes.bool.isRequired,
+    height:PropTypes.number.isRequired,
+    width:PropTypes.number.isRequired,
+    disabled:PropTypes.bool.isRequired,
+    solved:PropTypes.bool.isRequired,
+    content:PropTypes.string.isRequired,
 }
 
