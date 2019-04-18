@@ -8,7 +8,7 @@ import Card from '../Card';
 export default function CardComponent({disabled,cards, flipped,solved,handleClick}){
     console.log(flipped)
     return(
-    <div className="board">
+    <div className="board pulse">
         {cards.map((card) =>(
             <Card
                 key={card.id} 
