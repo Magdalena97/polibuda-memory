@@ -20,24 +20,38 @@ export default function Board(){
 
     const handleClick = (id,pair) => {
         setDisabled(true)
-        if(flipped.length==0){
+      
+        if(flipped.length===0){
             setFlipped([id])
             setDisabled(false)
+            setTimeout(timeToMatch, 300);
         }else{
             if(sameCardCliked(id)) {
                 setDisabled(false)
                 return
             }
             setFlipped([flipped[0],id])
-            if(isMatch(pair,id)){
+            
+            if(isMatch(pair,id) === true){
                 setSolved([...solved,flipped[0],id])
-                resetCards()   
+                resetCards()
+                return;   
             }else{
                 setTimeout(resetCards,2000)
+               
+
+                return;
             }
+            
         }
         
     }
+    const timeToMatch = ()=> {
+        if(flipped.length===1){
+            resetCards();
+        }
+    }
+
     const resetCards = () => {
         setFlipped([])//will be an empty array again
         setDisabled(false)
@@ -45,16 +59,19 @@ export default function Board(){
 
     const sameCardCliked = (id) =>flipped.includes(id)
 
+   
+
    const isMatch = (pair,id) => {
-        const clickedCard = cards.find((card) => card.id == id)
-        const flippedCard = cards.find((card) => flipped[0] == card.id)
-        return flippedCard.pair==clickedCard.pair
+        const clickedCard = cards.find((card) => card.id === id)
+        const flippedCard = cards.find((card) => flipped[0] === card.id)
+        return (flippedCard.pair === clickedCard.pair && flipped.includes(id) && flipped.includes(flipped[0]));
     }
     return(
         <div className="partParent">
             <div className="partTop">
                 <img src={Logo} className="logoBoard"/>
                 <Header/>
+               
             </div>
                 <CardComponent
                     cards={cards}
