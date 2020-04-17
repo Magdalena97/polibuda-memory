@@ -1,10 +1,10 @@
 .flip-container {
    perspective: 1000px;
    display: inline-block;
-   background: #F5FFFA;
+   //background: #F5FFFA;
  }
  img{
-   border-radius: 5px;
+   border-radius: 5px; 
  }
  .flip-container.flipped .flipper {
    transform: rotateY(180deg);
@@ -21,7 +21,9 @@
    backface-visibility: hidden;
    position: absolute;
    left: 0;
-   top: 0;
+   top: 0; 
+   border-style: solid; 
+   border-color: lightgrey;
  }
  
  .back {

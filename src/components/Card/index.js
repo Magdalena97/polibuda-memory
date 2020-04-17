@@ -14,7 +14,7 @@ function renderImage(content,solved,height,width,flipped){
        <img 
             style={{ height,width }}
             className={flipped ? 'front' : 'back'}
-            src={flipped || solved ? content : `/images/back.jpg`}
+            src={flipped || solved ? content : `/images/questionmark.png`}
         />
     )
 }
@@ -37,7 +37,7 @@ function renderText(content,solved,flipped,height,width){
         return(  <img  
                 style={{ height,width }}
                 className={'back'} 
-                src={ `/images/back.jpg`}
+                src={ `/images/questionmark.png`}
         /> )}  
 }
 export default function Card({id,type,content,pair,solved,width,height,flipped,handleClick,disabled}){
